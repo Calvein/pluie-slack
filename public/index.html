@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <title>Pluie dans l'heure dans Slack</title>
+
+    <meta name="title" content="Pluie dans l'heure dans Slack" />
+    <meta
+      name="description"
+      content="Savoir si il va pleuvoir dans l'heure qui vient directement dans Slack."
+    />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://pluie-slack.now.sh" />
+    <meta property="og:title" content="Pluie dans l'heure dans Slack" />
+    <meta
+      property="og:description"
+      content="Savoir si il va pleuvoir dans l'heure qui vient directement dans Slack."
+    />
+    <meta property="og:image" content="https://pluie-slack.now.sh/assets/meta.png" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://pluie-slack.now.sh" />
+    <meta property="twitter:title" content="Pluie dans l'heure dans Slack" />
+    <meta
+      property="twitter:description"
+      content="Savoir si il va pleuvoir dans l'heure qui vient directement dans Slack."
+    />
+    <meta
+      property="twitter:image"
+      content="https://pluie-slack.now.sh/assets/meta.png"
+    />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#4283b6" />
+
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/rain.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/rain.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/rain.png" />
+    <link rel="shortcut icon" href="assets/rain.png" />
+    <meta name="msapplication-TileColor" content="#4283b6" />
+
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Lato:400,700,900&display=swap"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="bg"></div>
+    <main>
+      <h1 class="title">Pluie dans l'heure Slack App</h1>
+      <p class="intro">
+        <a
+          href="http://www.meteofrance.com/previsions-meteo-france/previsions-pluie"
+          >Le service <b>pluie dans l'heure</b> de Météo France</a
+        >
+        directement sur Slack
+      </p>
+
+      <div class="browser">
+        <div class="navbar">
+          <div class="navbar-buttons">
+            <div class="navbar-button navbar-button-1"></div>
+            <div class="navbar-button navbar-button-2"></div>
+            <div class="navbar-button navbar-button-3"></div>
+          </div>
+        </div>
+        <div class="slack">
+          <div class="slack-sidebar"></div>
+          <div class="slack-content">
+            <div class="slack-block">
+              <img
+                src="assets/avatar-user.jpg"
+                class="slack-avatar"
+                alt="avatar user"
+              />
+              <div class="slack-message">
+                <div class="slack-message-info">
+                  <span class="slack-message-info-name">Calvein 💁‍♂️</span>
+                  <span class="slack-message-info-time">18 h 40</span>
+                </div>
+                <div class="slack-message-content">
+                  /pluie Nantes
+                </div>
+              </div>
+            </div>
+
+            <div class="slack-block">
+              <img
+                src="assets/avatar-app.png"
+                class="slack-avatar"
+                alt="avatar app"
+              />
+              <div class="slack-message">
+                <div class="slack-message-info">
+                  <span class="slack-message-info-name"
+                    >Pluie dans l'heure</span
+                  >
+                  <span class="slack-message-info-app">appli</span>
+                  <span class="slack-message-info-time">18 h 40</span>
+                </div>
+                <div class="slack-message-content">
+                  à Nantes de 18h40 ☔☔🌧️⛈️🌧️☔☀️☀️☀️☀️☀️☀️ à 19h40<br />
+                  Prévoyez un parapluie ☂️
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <a
+        class="button"
+        href="https://slack.com/oauth/authorize?client_id=13443117031.794991034021&scope=chat:write:bot,commands"
+      >
+        <img src="assets/slack-logo.svg" class="button-logo" />
+        Ajouter à Slack
+      </a>
+    </main>
+  </body>
+</html>

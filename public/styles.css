@@ -1,0 +1,231 @@
+html {
+  --bg-size: 36px;
+
+  --super-dark: #224c6d;
+  --dark: #4283b6;
+  --light: #91cbf9;
+  --navbar-button-1-bg: #ff5f56;
+  --navbar-button-1-border: #e0443e;
+  --navbar-button-2-bg: #ffbd2e;
+  --navbar-button-2-border: #dea123;
+  --navbar-button-3-bg: #27c93f;
+  --navbar-button-3-border: #1aab29;
+  --slack-text: #1d1c1d;
+  --slack-sidebar: #4d394b;
+  --slack-text-time: #616061;
+  --slack-bg-app: rgba(29, 28, 29, 0.13);
+  --slack-text-app: rgba(29, 28, 29, 0.7);
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  background: var(--dark);
+  font-family: sans-serif;
+  color: var(--super-dark);
+}
+
+::selection {
+  background: var(--super-dark);
+  color: var(--light);
+}
+
+@keyframes loop {
+  100% {
+    background-position: calc(var(--bg-size) * -1) var(--bg-size);
+  }
+}
+
+.bg {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+  background: url(assets/rain.png);
+  background-size: var(--bg-size);
+  opacity: 0.33;
+  will-change: background-position;
+  animation: 2s loop infinite linear;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  max-width: 800px;
+  width: 100%;
+  padding: 24px 20px 40px;
+  margin: 0 20px;
+  box-shadow: 6px 6px var(--super-dark);
+  background: var(--light);
+}
+
+.title {
+  margin: 0;
+}
+
+.intro {
+  margin: 8px 0 24px;
+}
+
+.intro a {
+  color: inherit;
+}
+
+.browser {
+  max-width: 600px;
+  margin-bottom: 20px;
+}
+
+.navbar {
+  height: 32px;
+  padding-left: 4px;
+  background: var(--super-dark);
+  border-radius: 4px 4px 0 0;
+}
+
+.navbar-buttons {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+.navbar-button {
+  width: 12px;
+  height: 12px;
+  margin-left: 8px;
+  background: red;
+  border: 1px solid;
+  border-radius: 50%;
+}
+
+.navbar-button-1 {
+  background: var(--navbar-button-1-bg);
+  border-color: var(--navbar-button-1-border);
+}
+
+.navbar-button-2 {
+  background: var(--navbar-button-2-bg);
+  border-color: var(--navbar-button-2-border);
+}
+
+.navbar-button-3 {
+  background: var(--navbar-button-3-bg);
+  border-color: var(--navbar-button-3-border);
+}
+
+.slack {
+  display: flex;
+  border-radius: 0 0 4px 4px;
+  font-size: 15px;
+  font-family: Lato, sans-serif;
+  font-weight: 400;
+  color: var(--slack-text);
+  overflow: hidden;
+}
+
+.slack-sidebar {
+  width: 0;
+  background: var(--slack-sidebar);
+  transition: 200ms;
+}
+
+@media screen and (min-width: 500px) {
+  .slack-sidebar {
+    width: 88px;
+  }
+}
+
+.slack-content {
+  padding: 16px 8px;
+  width: 100%;
+  background: white;
+}
+
+.slack-block {
+  display: flex;
+  padding: 6px 0 6px 12px;
+}
+
+.slack-avatar {
+  flex-shrink: 0;
+  width: 36px;
+  height: 36px;
+  border-radius: 3px;
+  padding-right: 8px;
+}
+
+.slack-message {
+  margin-top: -9px;
+}
+
+.slack-message-info {
+  margin: 9px 0 -5px;
+}
+
+.slack-message-info-name {
+  line-height: 15px;
+  font-weight: 900;
+}
+
+.slack-message-info-app {
+  display: inline-block;
+  height: 14px;
+  padding: 1px 3px;
+  vertical-align: 0.125rem;
+  border-radius: 2px;
+  background: var(--slack-bg-app);
+  text-transform: uppercase;
+  line-height: 1.25;
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--slack-text-app);
+}
+
+.slack-message-info-time {
+  font-size: 12px;
+  color: var(--slack-text);
+}
+
+.slack-message-content {
+  margin-top: 8px;
+  line-height: 22px;
+}
+
+.button {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  padding: 16px 24px;
+  background: var(--super-dark);
+  box-shadow: 6px 6px var(--dark);
+  font-weight: bold;
+  font-size: 32px;
+  text-decoration: none;
+  color: white;
+}
+.button:hover {
+  background: white;
+  color: var(--super-dark);
+}
+.button:active {
+  transform: translate(6px, 6px);
+  background: white;
+  box-shadow: none;
+  color: var(--super-dark);
+}
+
+.button-logo {
+  width: 32px;
+  margin-right: 8px;
+}

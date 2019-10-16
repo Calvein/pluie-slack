@@ -1,0 +1,8 @@
+{
+  "name": "pluie-slack",
+  "version": 2,
+  "env": {
+    "SLACK_CLIENT_ID": "@slack-client-id",
+    "SLACK_CLIENT_SECRET": "@slack-client-secret"
+  }
+}
