@@ -4,6 +4,7 @@ html {
   --super-dark: #224c6d;
   --dark: #4283b6;
   --light: #91cbf9;
+  --super-light: #d7ecfd;
   --navbar-button-1-bg: #ff5f56;
   --navbar-button-1-border: #e0443e;
   --navbar-button-2-bg: #ffbd2e;
@@ -212,15 +213,15 @@ main {
   font-weight: bold;
   font-size: 32px;
   text-decoration: none;
-  color: white;
+  color: var(--super-light);
 }
 .button:hover {
-  background: white;
+  background: var(--super-light);
   color: var(--super-dark);
 }
 .button:active {
   transform: translate(6px, 6px);
-  background: white;
+  background: var(--super-light);
   box-shadow: none;
   color: var(--super-dark);
 }

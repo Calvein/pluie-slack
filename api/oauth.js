@@ -1,4 +1,4 @@
-const fetch = require('node-fetch')
+const axios = require('axios')
 const { parse, stringify } = require('querystring')
 
 module.exports = async (req, res) => {
@@ -6,34 +6,34 @@ module.exports = async (req, res) => {
   const urlQueryString = req.url.replace(/^.*\?/, '')
   const code = parse(urlQueryString).code
 
-  // Compose authHeader by encoding the string \${client_id}:\${client_secret}
   const client_id = process.env.SLACK_CLIENT_ID
   const client_secret = process.env.SLACK_CLIENT_SECRET
-  const Authorization =
-    'Basic ' + Buffer.from(`\${client_id}:\${client_secret}`).toString('base64')
 
   // Hit oauth.access for access_token
-  const oauthAccess = await fetch('https://slack.com/api/oauth.access', {
-    method: 'POST',
-    body: stringify({ code }),
+  const { access_token } = (await axios({
+    url: 'https://slack.com/api/oauth.access',
+    method: 'post',
+    data: stringify({
+      code,
+      client_id,
+      client_secret,
+    }),
     headers: {
-      Authorization,
-      'Content-Type': 'application/x-www-form-urlencoded',
+      'content-type': 'application/x-www-form-urlencoded',
     },
-  })
-  const { access_token } = await oauthAccess.json()
+  })).data
 
   // Hit auth.test for slack domain
-  const authTest = await fetch('https://slack.com/api/auth.test', {
-    method: 'POST',
+  const { url: slackUrl } = (await axios({
+    url: 'https://slack.com/api/auth.test',
+    method: 'post',
     headers: {
-      'Content-Type': 'application/json',
-      Authorization: `Bearer \${access_token}`,
+      authorization: `Bearer ${access_token}`,
+      'content-type': 'application/json',
     },
-  })
-  const { url: slackUrl } = await authTest.json()
+  })).data
 
   // Send redirect response to slack domain
-  res.writeHead(302, 'Redirect', { Location: slackUrl })
+  res.writeHead(302, 'Redirect', { location: slackUrl })
   res.end()
 }
