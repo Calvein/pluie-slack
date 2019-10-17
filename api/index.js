@@ -3,9 +3,9 @@ const { parse } = require('querystring')
 const getSlackMessage = require('./getSlackMessage')
 
 module.exports = async (req, res) => {
-  const body = parse(await text(req)).text
+  const text = parse(await text(req)).text
+  const message = (await axios(`https://pdh.now.sh/?text=${text}`)).data
 
-  const result = await getSlackMessage(body)
   res.writeHead(200, { 'Content-Type': 'application/json' })
   res.end(
     JSON.stringify({
@@ -15,7 +15,7 @@ module.exports = async (req, res) => {
           type: 'section',
           text: {
             type: 'mrkdwn',
-            text: result,
+            text: message,
           },
         },
       ],
