@@ -82,13 +82,13 @@
                   <span class="slack-message-info-name">Calvein 💁‍♂️</span>
                   <span class="slack-message-info-time">18 h 40</span>
                 </div>
-                <div class="slack-message-content">
-                  /pluie Nantes
+                <div class="slack-message-content withInput">
+                  /pluie <input class="slack-message-city" value="Nantes" />
                 </div>
               </div>
             </div>
 
-            <div class="slack-block">
+            <div class="slack-block result-block hidden">
               <img
                 src="assets/avatar-app.png"
                 class="slack-avatar"
@@ -102,7 +102,7 @@
                   <span class="slack-message-info-app">appli</span>
                   <span class="slack-message-info-time">18 h 40</span>
                 </div>
-                <div class="slack-message-content">
+                <div class="slack-message-content result-content">
                   à Nantes de 18h40 ☔☔🌧️⛈️🌧️☔☀️☀️☀️☀️☀️☀️ à 19h40<br />
                   Prévoyez un parapluie ☂️
                 </div>
@@ -120,5 +120,26 @@
         Ajouter à Slack
       </a>
     </main>
+    <script>
+      const inputEl = document.querySelector('.slack-message-city')
+      const blockEl = document.querySelector('.result-block')
+      const contentEl = document.querySelector('.result-content')
+
+      const getRain = async () => {
+        const req = await fetch('/api', {
+          method: 'post',
+          body: `text=${inputEl.value}`
+        })
+        const data = await req.json()
+
+        const res = data.blocks[0].text.text
+          .replace(/\*(.*)\*/, '<b>$1</b>')
+          .replace(/\n/, '<br />')
+        contentEl.innerHTML = res
+        blockEl.classList.remove('hidden')
+      }
+      getRain()
+      inputEl.addEventListener('change', getRain)
+    </script>
   </body>
 </html>

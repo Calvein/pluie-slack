@@ -1,10 +1,10 @@
+const axios = require('axios')
 const { text } = require('micro')
 const { parse } = require('querystring')
-const getSlackMessage = require('./getSlackMessage')
 
 module.exports = async (req, res) => {
-  const text = parse(await text(req)).text
-  const message = (await axios(`https://pdh.now.sh/?text=${text}`)).data
+  const query = parse(await text(req)).text
+  const message = (await axios(`https://pdh.now.sh/?text=${query}`)).data
 
   res.writeHead(200, { 'Content-Type': 'application/json' })
   res.end(

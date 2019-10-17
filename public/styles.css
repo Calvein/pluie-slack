@@ -1,6 +1,5 @@
 html {
   --bg-size: 36px;
-
   --super-dark: #224c6d;
   --dark: #4283b6;
   --light: #91cbf9;
@@ -55,7 +54,7 @@ body {
   background-size: var(--bg-size);
   opacity: 0.33;
   will-change: background-position;
-  animation: 2s loop infinite linear;
+  /*animation: 2s loop infinite linear;*/
 }
 
 main {
@@ -85,6 +84,7 @@ main {
 
 .browser {
   max-width: 600px;
+  width: 100%;
   margin-bottom: 20px;
 }
 
@@ -155,7 +155,12 @@ main {
 
 .slack-block {
   display: flex;
-  padding: 6px 0 6px 12px;
+  padding: 6px 6px 6px 12px;
+  transition: 200ms;
+}
+.slack-block.hidden {
+  opacity: 0;
+  transform: translateY(16px);
 }
 
 .slack-avatar {
@@ -167,6 +172,7 @@ main {
 }
 
 .slack-message {
+  width: 100%;
   margin-top: -9px;
 }
 
@@ -201,6 +207,18 @@ main {
 .slack-message-content {
   margin-top: 8px;
   line-height: 22px;
+}
+.slack-message-content.withInput {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.slack-message-city {
+  flex-grow: 1;
+  margin-left: 4px;
+  border: 0;
+  font: inherit;
 }
 
 .button {
