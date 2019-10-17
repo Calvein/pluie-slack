@@ -1,6 +1,6 @@
 const { text } = require('micro')
 const { parse } = require('querystring')
-const getSlackMessage = require('getSlackMessage')
+const getSlackMessage = require('./getSlackMessage')
 
 module.exports = async (req, res) => {
   const body = parse(await text(req)).text
