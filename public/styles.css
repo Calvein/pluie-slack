@@ -54,7 +54,7 @@ body {
   background-size: var(--bg-size);
   opacity: 0.33;
   will-change: background-position;
-  /*animation: 2s loop infinite linear;*/
+  animation: 2s loop infinite linear;
 }
 
 main {
